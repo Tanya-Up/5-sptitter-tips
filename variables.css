@@ -1,0 +1,38 @@
+/**
+  We decided to setup the variable file for you for the Milestone 2 section. You will, however, be expected to do this on your own
+  in the Certification Project, and in Milestone 3 (receiving a style-guide.md and translate this to variables.css) 
+  Note: you can reference these variables with var(<variable name>) in the particular
+  CSS file you import this into (typically style.css). For example, var(--clr-veryDarkCyan) is using hsl(183, 100%, 15%)
+**/
+
+/** Font Imports **/
+/** 
+  We have provided the files in assets/fonts/Space_Mono
+  We will leave the imports as an exercise for you
+  (You've seen how to do this in Assignment 3 and 4)
+**/
+
+/*
+  CSS Variables
+*/
+:root {
+  /* Layout */
+  --width-mobile: 375px;
+  --width-desktop: 1440;
+
+  /* Colours */
+  --clr-strongCyan: hsl(172, 67%, 45%);
+  --clr-veryDarkCyan: hsl(183, 100%, 15%);
+  --clr-darkGrayishCyan: hsl(186, 14%, 43%);
+  --clr-grayishCyan: hsl(184, 14%, 56%);
+  --clr-lightGrayishCyan: hsl(185, 41%, 84%);
+  --clr-veryLightGrayishCyan: hsl(189, 41%, 97%);
+  --clr-white: hsl(0, 0%, 100%);
+
+  /* Typography */
+  --font-formInput: 24px;
+  --fw-regular: 700; /* Bold Style */
+
+  /* Fonts */
+  --fs-base: '';
+}
