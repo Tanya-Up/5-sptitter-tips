@@ -7,47 +7,295 @@
 **/
 /* 1. Use a more-intuitive box-sizing model */
 *, *::before, *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
+
 /* 2. Remove default margin */
 * {
-  margin: 0;
+    margin: 0;
 }
+
 body {
-  /* 3. Add accessible line-height */
-  line-height: 1.5;
-  /* 4. Improve text rendering */
-  -webkit-font-smoothing: antialiased;
+    /* 3. Add accessible line-height */
+    line-height: 1.5;
+    /* 4. Improve text rendering */
+    -webkit-font-smoothing: antialiased;
+    user-select: none;
 }
+
 /* 5. Improve media defaults */
 img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
+    display: block;
+    max-width: 100%;
 }
+
 /* 6. Inherit fonts for form controls */
 input, button, textarea, select {
-  font: inherit;
+    font: inherit;
 }
+
 /* 7. Avoid text overflows */
 p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
+    overflow-wrap: break-word;
 }
+
 /* 8. Improve line wrapping */
 p {
-  text-wrap: pretty;
+    text-wrap: pretty;
 }
+
 h1, h2, h3, h4, h5, h6 {
-  text-wrap: balance;
+    text-wrap: balance;
 }
+
 /*
   9. Create a root stacking context
 */
 #root, #__next {
-  isolation: isolate;
+    isolation: isolate;
 }
 
 /** Your CSS Below **/
+@font-face {
+    font-family: 'Space Mono';
+    src: url('assets/fonts/Space_Mono/SpaceMono-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Space Mono';
+    src: url('assets/fonts/Space_Mono/SpaceMono-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Space Mono';
+    src: url('assets/fonts/Space_Mono/SpaceMono-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Space Mono';
+    src: url('assets/fonts/Space_Mono/SpaceMono-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+.container {
+    background-color: var(--clr-lightGrayishCyan);
+    font-family: 'Space Mono', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.component_wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 auto;
+    background-color: white;
+    max-width: var(--width-desktop);
+    border-radius: var(--brd-main);
+    width: 845px;
+    padding: 30px;
+}
+
+@media (max-width: 460px) {
+    .component_wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    .container {
+        min-height: 100%;
+    }
+
+    .component_result {
+        border-top-left-radius: 0px !important;
+        border-top-right-radius: 0px !important;
+    }
+}
+
+.component_calc {
+    border-radius: var(--brd-main);
+    padding: 15px 30px 15px 15px;
+}
+
+.component_calc__header.error {
+    display: none;
+    color: var(--clr-error);
+}
+
+.component_calc__header {
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--clr-darkGrayishCyan);
+    margin-bottom: 5px;
+}
+
+.component-calc__input-field {
+    width: 100%;
+    padding: 5px 10px;
+    background-color: var(--clr-veryLightGrayishCyan);
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: right;
+    opacity: 1;
+    border: 2px solid var(--clr-veryLightGrayishCyan);
+    outline: none;
+    transition: border 0.3s ease;
+    color: var(--clr-veryDarkCyan);
+}
+
+
+.component-calc__input-field::placeholder {
+    color: var(--clr-grayishCyan);
+    font-weight: bold;
+}
+
+.component-calc__tip {
+    margin: 40px 0;
+}
+
+.component-calc__input-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: var(--clr-grayishCyan);
+}
+
+.component_calc__input {
+    position: relative;
+}
+
+.component_calc__tip-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px 0;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.component_calc__tip-button {
+    width: 105px;
+    padding: 10px;
+    background-color: var(--clr-veryDarkCyan);
+    color: white;
+    border-radius: var(--brd-thrd);
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: center;
+    cursor: pointer;
+}
+
+.component_calc__tip-button.active:not(input) {
+    background-color: var(--clr-cu);
+    color: var(--clr-veryDarkCyan);
+}
+
+
+.component-calc__input-field.error{
+    border: 2px solid var(--clr-errorBorder);
+}
+
+.component-calc__input-field:focus,
+.component-calc__tip-button--custom:focus {
+    border: 2px solid var(--clr-strongCyan);
+}
+
+.component_result__button {
+    background-color: var(--clr-strongCyan);
+    opacity: 0.3;
+    color: var(--clr-veryDarkCyan);
+    padding: 10px;
+    border-radius: var(--brd-thrd);
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+.component_result__button.active {
+    background-color: var(--clr-cu);
+    color: var(--clr-veryDarkCyan);
+    opacity: 1;
+}
+
+.component-calc__tip-button--custom {
+    background-color: var(--clr-veryLightGrayishCyan);
+    color: var(--clr-veryDarkCyan);
+    width: 105px;
+    padding: 10px;
+    border-radius: var(--brd-thrd);
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: right;
+    cursor: pointer;
+    border: 2px solid var(--clr-veryLightGrayishCyan);
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+.component-calc__tip-button--custom::placeholder {
+    color: var(--clr-darkGrayishCyan);
+}
+
+.component_result {
+    background: var(--clr-veryDarkCyan);
+    border-radius: var(--brd-main);
+    color: white;
+    padding: 35px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 15px;
+}
+
+.component_result__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.component_result__item:nth-last-of-type(1) {
+    margin-top: 40px;
+}
+
+.component_result__amount {
+    font-size: 36px;
+    font-weight: bolder;
+    color: var(--clr-strongCyan);
+}
+
+.component_result__item-sublabel {
+    font-size: 14px;
+    font-weight: bolder;
+    color: var(--clr-grayishCyan);
+}
+
+.component_result__item-label {
+    font-size: 14px;
+    font-weight: bolder;
+    color: var(--clr-lightGrayishCyan);
+}
 
 /** Attribution CSS **/
-.attribution { font-size: 11px; text-align: center; }
-.attribution a { color: hsl(228, 45%, 44%); }
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}

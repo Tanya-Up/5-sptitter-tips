@@ -2,38 +2,70 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+
   <title>Frontend Mentor | Tip calculator app | Assignment 5</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  Bill
-
-  Select Tip %
-  5%
-  10%
-  15%
-  25%
-  50%
-  Custom
-
-  Number of People
-
-  Tip Amount
-  / person
-
-  Total
-  / person
-
-  Reset
-  
+<div class="container">
+  <div class="component_wrapper">
+    <div class="component_calc">
+      <div class="component_calc__amount">
+        <p class="component_calc__header">Bill</p>
+        <div class="component_calc__input">
+          <span class="component-calc__input-icon"><img src="assets/images/icon-dollar.svg" alt="input_img"/></span>
+          <input class="component-calc__input-field" type="text" aria-label="input_amount" placeholder="0"/>
+        </div>
+      </div>
+      <div class="component-calc__tip">
+        <p class="component_calc__header">Select Tip %</p>
+        <div class="component_calc__tip-buttons">
+          <div class="component_calc__tip-button active">5%</div>
+          <div class="component_calc__tip-button">10%</div>
+          <div class="component_calc__tip-button">15%</div>
+          <div class="component_calc__tip-button">25%</div>
+          <div class="component_calc__tip-button">50%</div>
+          <input class="component_calc__tip-button component-calc__tip-button--custom" placeholder="Custom"  aria-label="custom_tip"/>
+        </div>
+      </div>
+      <div class="component_calc__people">
+        <div style="display: flex; justify-content: space-between">
+          <p class="component_calc__header">Number of People</p>
+          <p class="component_calc__header error">Can't be zero</p>
+        </div>
+        <div class="component_calc__input">
+          <span class="component-calc__input-icon"><img src="assets/images/icon-person.svg" alt="input_img"/></span>
+          <input class="component-calc__input-field" type="text" aria-label="input_amount" placeholder="0"/>
+        </div>
+      </div>
+    </div>
+    <div class="component_result">
+      <div>
+        <div class="component_result__item">
+          <div style="margin-top: 15px">
+            <p class="component_result__item-label">Tip Amount</p>
+            <p class="component_result__item-sublabel">/ person</p>
+          </div>
+          <div class="component_result__amount">$<span class="component_result__tip-amount">0.00</span></div>
+        </div>
+        <div class="component_result__item">
+          <div>
+            <p class="component_result__item-label">Total</p>
+            <p class="component_result__item-sublabel">/ person</p>
+          </div>
+          <div class="component_result__amount">$<span class="component_result__total-amount">0.00</span></div>
+        </div>
+      </div>
+      <div class="component_result__button">RESET</div>
+    </div>
+  </div>
+</div>
   <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Tetiana Hil</a>.
   </div>
   <script src="script.js"></script>
 </body>

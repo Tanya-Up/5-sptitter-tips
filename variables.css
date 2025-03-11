@@ -28,6 +28,9 @@
   --clr-lightGrayishCyan: hsl(185, 41%, 84%);
   --clr-veryLightGrayishCyan: hsl(189, 41%, 97%);
   --clr-white: hsl(0, 0%, 100%);
+  --clr-cu: hsl(173, 62%, 76%);
+  --clr-error: hsl(14, 67%, 69%);
+  --clr-errorBorder: hsl(11, 57%, 63%);
 
   /* Typography */
   --font-formInput: 24px;
@@ -35,4 +38,8 @@
 
   /* Fonts */
   --fs-base: '';
+
+  --brd-main: 20px;
+  --brd-second: 10px;
+  --brd-thrd: 5px;
 }
